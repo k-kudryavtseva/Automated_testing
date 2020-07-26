@@ -1,0 +1,2 @@
+[2020-07-26 09:04:32] [IMessager.java] [1] [INFO] INFO: '**************** Test execution summary ****************'.
+[2020-07-26 09:04:32] [IMessager.java] [1] [INFO] RESULT #1: TEST [carina_qa - testGetAzureUsers] FAIL [log=./1595786648491/f36b2e1e-704f-49ba-bc13-45ebceddd70a/test.log]

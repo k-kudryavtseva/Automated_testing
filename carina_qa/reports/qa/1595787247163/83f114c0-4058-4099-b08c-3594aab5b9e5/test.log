@@ -1,0 +1,2 @@
+[2020-07-26 09:14:15] [IMessager.java] [1] [INFO] INFO: '**************** Test execution summary ****************'.
+[2020-07-26 09:14:15] [IMessager.java] [1] [INFO] RESULT #1: TEST [carina_qa - testDeleteAzureUsers] FAIL [log=./1595787247163/203e11d3-93ce-40f4-96db-7a45d79a1160/test.log]
