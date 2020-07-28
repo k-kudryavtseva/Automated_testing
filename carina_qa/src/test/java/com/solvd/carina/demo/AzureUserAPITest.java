@@ -96,7 +96,7 @@ public class AzureUserAPITest extends AbstractTest {
         AzureUser actualUser = mapper.readValue(rs, AzureUser.class);
 
         Assert.assertNotNull(actualUser, "Response object cannot be null");
-        Assert.assertEquals(actualUser.getUsername(), id, "Id is not as expected");
+        Assert.assertEquals(actualUser.getId(), id, "Id is not as expected");
         Assert.assertEquals(actualUser.getUsername(), username, "Username is not as expected");
         Assert.assertEquals(actualUser.getPassword(), password, "Password is not as expected");
     }
