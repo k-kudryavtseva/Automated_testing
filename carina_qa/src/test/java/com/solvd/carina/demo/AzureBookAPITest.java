@@ -5,14 +5,15 @@ import com.qaprosoft.apitools.validation.JsonCompareKeywords;
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.api.http.HttpResponseStatusType;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
-import com.solvd.carina.demo.api.azure.books.DeleteAzureBookByIdMethod;
-import com.solvd.carina.demo.api.azure.books.GetAzureBookByIdMethod;
-import com.solvd.carina.demo.api.azure.books.GetAzureBookMethod;
-import com.solvd.carina.demo.api.azure.books.PostAzureBookMethod;
+import com.solvd.carina.demo.api.azure.books.*;
+import com.solvd.carina.demo.api.azure.users.PutAzureUserByIdMethod;
 import com.solvd.carina.demo.api.bo.AzureBook;
+import com.solvd.carina.demo.api.bo.AzureUser;
 import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
 
 public class AzureBookAPITest extends AbstractTest {
 
@@ -71,5 +72,29 @@ public class AzureBookAPITest extends AbstractTest {
         DeleteAzureBookByIdMethod deleteAzureBookByIdMethod = new DeleteAzureBookByIdMethod(id);
         deleteAzureBookByIdMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
         deleteAzureBookByIdMethod.callAPI();
+    }
+
+    @MethodOwner(owner = "k-kudryavtseva")
+    @Test
+    public void testPutAzureBookByIdMethod() throws IOException {
+        int id = 100;
+        String title = "title";
+        String description = "description";
+        int pageCount = 200;
+        String excerpt = "excerpt";
+        String publishDate = "2020-07-28T16:25:51.8305106";
+        PutAzureBookByIdMethod putAzureBookByIdMethod = new PutAzureBookByIdMethod(id, title, description, pageCount, excerpt, publishDate);
+        putAzureBookByIdMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
+        String rs = putAzureBookByIdMethod.callAPI().asString();
+        ObjectMapper mapper = new ObjectMapper();
+        AzureBook actualBook = mapper.readValue(rs, AzureBook.class);
+
+        Assert.assertNotNull(actualBook, "Response object cannot be null");
+        Assert.assertEquals(actualBook.getId(), id, "Id is not as expected");
+        Assert.assertEquals(actualBook.getTitle(), title, "Title is not as expected");
+        Assert.assertEquals(actualBook.getDescription(), description, "Description is not as expected");
+        Assert.assertEquals(actualBook.getPageCount(), pageCount, "PageCount is not as expected");
+        Assert.assertEquals(actualBook.getExcerpt(), excerpt, "Excerpt is not as expected");
+        Assert.assertEquals(actualBook.getPublishDate(), publishDate, "PublishDate is not as expected");
     }
 }
