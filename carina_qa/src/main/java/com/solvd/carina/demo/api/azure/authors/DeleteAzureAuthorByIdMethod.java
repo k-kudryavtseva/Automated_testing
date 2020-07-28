@@ -7,7 +7,8 @@ import java.util.Properties;
 
 public class DeleteAzureAuthorByIdMethod extends AbstractApiMethodV2 {
     public DeleteAzureAuthorByIdMethod(int id) {
-        super(null, null, new Properties());
+        super("api/azure_authors/_delete/rq.json", null, new Properties());
         replaceUrlPlaceholder("api_azure_url", Configuration.getEnvArg("api_azure_url"));
+        replaceUrlPlaceholder("id", "" + id);
     }
 }
