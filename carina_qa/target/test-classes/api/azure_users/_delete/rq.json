@@ -1,7 +1,0 @@
-[
-  {
-    "ID": 1,
-    "UserName": "${UserName}",
-    "Password": "${Password}"
-  }
-]

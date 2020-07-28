@@ -86,7 +86,6 @@ public class AzureActivityAPITest extends AbstractTest {
         DeleteAzureActivityByIdMethod deleteAzureActivityByIdMethod = new DeleteAzureActivityByIdMethod(id);
         deleteAzureActivityByIdMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
         deleteAzureActivityByIdMethod.callAPI();
-        deleteAzureActivityByIdMethod.validateResponse();
     }
 
     @MethodOwner(owner = "k-kudryavtseva")
