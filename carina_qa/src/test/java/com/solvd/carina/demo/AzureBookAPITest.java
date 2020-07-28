@@ -6,9 +6,8 @@ import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.api.http.HttpResponseStatusType;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.solvd.carina.demo.api.azure.books.*;
-import com.solvd.carina.demo.api.azure.users.PutAzureUserByIdMethod;
 import com.solvd.carina.demo.api.bo.AzureBook;
-import com.solvd.carina.demo.api.bo.AzureUser;
+import org.joda.time.LocalDateTime;
 import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -26,7 +25,7 @@ public class AzureBookAPITest extends AbstractTest {
         String description = "NewDescription";
         int pageCount = 300;
         String excerpt = "excerpt";
-        String publishDate = "2020-07-28T16:25:51.8305106"; //LocalDateTime.now().toString();
+        String publishDate = LocalDateTime.now().toString(); //"2020-07-28T16:25:51.8305106";
 
         PostAzureBookMethod postAzureBookMethod = new PostAzureBookMethod(id, title, description, pageCount, excerpt, publishDate);
         postAzureBookMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
@@ -82,7 +81,7 @@ public class AzureBookAPITest extends AbstractTest {
         String description = "description";
         int pageCount = 200;
         String excerpt = "excerpt";
-        String publishDate = "2020-07-28T16:25:51.8305106";
+        String publishDate = LocalDateTime.now().toString(); //"2020-07-28T16:25:51.8305106";
         PutAzureBookByIdMethod putAzureBookByIdMethod = new PutAzureBookByIdMethod(id, title, description, pageCount, excerpt, publishDate);
         putAzureBookByIdMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
         String rs = putAzureBookByIdMethod.callAPI().asString();

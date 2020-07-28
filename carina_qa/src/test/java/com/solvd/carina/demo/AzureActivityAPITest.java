@@ -27,7 +27,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.time.LocalDate;
 
 /**
  * This sample shows how create REST API tests.
