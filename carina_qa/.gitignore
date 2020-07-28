@@ -77,3 +77,9 @@ fabric.properties
 # custom folders
 mavendemo/lib/*
 mavendemo/OpenNLP_models/*
+
+/target
+pom.xml
+.idea/
+/reports
+
