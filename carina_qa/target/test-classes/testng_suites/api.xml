@@ -6,21 +6,52 @@
 	<parameter name="jenkinsJobName" value="API-Demo-Test"/>
 	<parameter name="jenkinsJobType" value="api"/>
 
-	<parameter name="jenkinsEnvironments" value="DEMO"/>
-	<parameter name="jenkinsSlackChannels" value="slack-test"/>
-
-	<parameter name="jenkinsRegressionPipeline" value="api_regression, full_regression"/>
-	<parameter name="jenkinsRegressionScheduling_api_regression" value="H 2 * * *"/>
-
-	<parameter name="jenkinsPipelineEnvironments" value="DEMO"/>
-	<parameter name="jenkinsJobExecutionMode" value="continue"/>
-
-	<test name="User API tests"> <!-- в testNG тест - это верхняя составляющая сьюта -->
+	<test name="User API tests">
 		<classes>
-			<class name="com.solvd.carina.demo.APISampleTest" />
-			<class name="com.solvd.carina.demo.APISampleTestV2">
+			<class name="com.solvd.carina.demo.AzureUserAPITest">
 				<methods>
 					<include name="testCreateAzureUser" />
+					<include name="testGetAzureUsers" />
+					<include name="testGetAzureUserById" />
+					<include name="testDeleteAzureUserById" />
+					<include name="testPutAzureUserById" />
+				</methods>
+			</class>
+			<class name="com.solvd.carina.demo.AzureActivityAPITest">
+				<methods>
+					<include name="testCreateAzureActivity" />
+					<include name="testGetAzureActivity" />
+					<include name="testGetAzureActivityById" />
+					<include name="testDeleteAzureActivityById" />
+					<include name="testPutAzureActivityById" />
+				</methods>
+			</class>
+			<class name="com.solvd.carina.demo.AzureAuthorAPITest">
+				<methods>
+					<include name="testCreateAzureUser" />
+					<include name="testGetAzureUsers" />
+					<include name="testGetAzureAuthorById" />
+					<include name="testGetAzureAuthorByIdBook" />
+					<include name="testDeleteAzureAuthorById" />
+					<include name="testPutAzureAuthorById" />
+				</methods>
+			</class>
+			<class name="com.solvd.carina.demo.AzureBookAPITest">
+				<methods>
+					<include name="testCreateAzureBook" />
+					<include name="testGetAzureBook" />
+					<include name="testGetAzureBookById" />
+					<include name="testDeleteAzureBookById" />
+					<include name="testPutAzureBookById" />
+				</methods>
+			</class>
+			<class name="com.solvd.carina.demo.AzureCoverPhotoAPITest">
+				<methods>
+					<include name="testCreateAzureUser" />
+					<include name="testGetAzureUsers" />
+					<include name="testGetAzureUserById" />
+					<include name="testDeleteAzureUserById" />
+					<include name="testPutAzureUserById" />
 				</methods>
 			</class>
 		</classes>

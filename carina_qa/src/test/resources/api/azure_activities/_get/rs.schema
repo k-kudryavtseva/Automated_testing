@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "ID": {
+      "type": "integer"
+    },
+    "Title": {
+       "type": "string"
+    },
+    "DueDate": {
+       "type": "string"
+    },
+    "Completed": {
+        "type": "boolean"
+    }
+  },
+  "required": [
+      "ID",
+      "Title",
+      "DueDate",
+      "Completed"
+  ]
+}

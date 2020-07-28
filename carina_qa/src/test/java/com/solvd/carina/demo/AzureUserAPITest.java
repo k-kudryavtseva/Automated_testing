@@ -20,30 +20,29 @@ import com.qaprosoft.apitools.validation.JsonCompareKeywords;
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.api.http.HttpResponseStatusType;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
-import com.solvd.carina.demo.api.azure.users.DeleteAzureUserByIdMethod;
-import com.solvd.carina.demo.api.azure.users.GetAzureUserByIdMethod;
-import com.solvd.carina.demo.api.azure.users.GetAzureUserMethod;
-import com.solvd.carina.demo.api.azure.users.PostAzureUserMethod;
+import com.solvd.carina.demo.api.azure.users.*;
 import com.solvd.carina.demo.api.bo.AzureUser;
 import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
 
 /**
  * This sample shows how create REST API tests.
  *
  * @author qpsdemo
  */
-public class APISampleTestV2 extends AbstractTest { // AbstractTest - класс из Карины, содержит базовые методы для тестов
+public class AzureUserAPITest extends AbstractTest {
 
     @MethodOwner(owner = "k-kudryavtseva")
     @Test
     public void testCreateAzureUser() throws Exception {
         String username = "k-kudryavtseva";
         String password = "root";
-        PostAzureUserMethod postAzureUserMethod = new PostAzureUserMethod(username, password); // объявление метода --> формирование запроса
-        postAzureUserMethod.expectResponseStatus(HttpResponseStatusType.OK_200); // CREATED_201 - статус-код, который ожидаем в response
-        String rs = postAzureUserMethod.callAPI().asString(); // вызов метода
+        PostAzureUserMethod postAzureUserMethod = new PostAzureUserMethod(username, password);
+        postAzureUserMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
+        String rs = postAzureUserMethod.callAPI().asString();
         ObjectMapper mapper = new ObjectMapper();
         AzureUser actualUser = mapper.readValue(rs, AzureUser.class);
 
@@ -60,17 +59,17 @@ public class APISampleTestV2 extends AbstractTest { // AbstractTest - класс
         getAzureUserMethod.callAPI().asString(); // вызов метода
 
         getAzureUserMethod.validateResponse(JSONCompareMode.STRICT, JsonCompareKeywords.ARRAY_CONTAINS.getKey());
-        getAzureUserMethod.validateResponseAgainstSchema("api/azure_users/_get/rs.schema");
+        getAzureUserMethod.validateResponseAgainstSchema("api/azure_users/_get/rsArray.schema");
     }
 
     @MethodOwner(owner = "k-kudryavtseva")
     @Test
     public void testGetAzureUserById() {
-        GetAzureUserByIdMethod getAzureUserByIdMethod = new GetAzureUserByIdMethod(10);
+        int userId = 1;
+        GetAzureUserByIdMethod getAzureUserByIdMethod = new GetAzureUserByIdMethod(userId);
         getAzureUserByIdMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
         getAzureUserByIdMethod.callAPI().asString();
 
-        getAzureUserByIdMethod.validateResponse(JSONCompareMode.STRICT, JsonCompareKeywords.ARRAY_CONTAINS.getKey());
         getAzureUserByIdMethod.validateResponseAgainstSchema("api/azure_users/_get/rs.schema");
     }
 
@@ -85,10 +84,21 @@ public class APISampleTestV2 extends AbstractTest { // AbstractTest - класс
         deleteAzureUserByIdMethod.validateResponse();
     }
 
-//    @MethodOwner(owner = "k-kudryavtseva")
-//    @Test
-//    public void testPutAzureUserById() {
-//        super();
-//    }
+    @MethodOwner(owner = "k-kudryavtseva")
+    @Test
+    public void testPutAzureUserById() throws IOException {
+        int id = 11;
+        String username = "k-kudryavtseva";
+        String password = "root";
+        PutAzureUserByIdMethod putAzureUserByIdMethod = new PutAzureUserByIdMethod(id, username, password);
+        putAzureUserByIdMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
+        String rs = putAzureUserByIdMethod.callAPI().asString();
+        ObjectMapper mapper = new ObjectMapper();
+        AzureUser actualUser = mapper.readValue(rs, AzureUser.class);
 
+        Assert.assertNotNull(actualUser, "Response object cannot be null");
+        Assert.assertEquals(actualUser.getUsername(), id, "Id is not as expected");
+        Assert.assertEquals(actualUser.getUsername(), username, "Username is not as expected");
+        Assert.assertEquals(actualUser.getPassword(), password, "Password is not as expected");
+    }
 }

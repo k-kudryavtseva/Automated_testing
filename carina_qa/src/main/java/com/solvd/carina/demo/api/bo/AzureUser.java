@@ -4,13 +4,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AzureUser {
-    private String id;
+    private int id;
     private String username;
     private String password;
 
     @JsonCreator
     public AzureUser(
-            @JsonProperty("ID") String id,
+            @JsonProperty("ID") int id,
             @JsonProperty("UserName") String username,
             @JsonProperty("Password") String password
     ) {
@@ -20,11 +20,11 @@ public class AzureUser {
     }
 
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

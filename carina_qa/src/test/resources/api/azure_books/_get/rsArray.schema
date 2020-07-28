@@ -7,17 +7,29 @@
       "ID": {
         "type": "integer"
       },
-      "UserName": {
+      "Title": {
         "type": "string"
       },
-      "Password": {
+      "Description": {
+        "type": "string"
+      },
+      "PageCount": {
+        "type": "integer"
+      },
+      "Excerpt": {
+        "type": "string"
+      },
+      "PublishDate": {
         "type": "string"
       }
     },
-    "required": [
-      "ID",
-      "UserName",
-      "Password"
-    ]
+   "required": [
+         "ID",
+         "Title",
+         "Description",
+         "PageCount",
+         "Excerpt",
+         "PublishDate"
+     ]
   }
 }

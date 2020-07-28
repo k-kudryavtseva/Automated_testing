@@ -1,0 +1,2 @@
+[2020-07-28 06:02:21] [IMessager.java] [1] [INFO] INFO: '**************** Test execution summary ****************'.
+[2020-07-28 06:02:21] [IMessager.java] [1] [INFO] RESULT #1: TEST [carina_qa - testGetAzureCoverPhotoByIdBook] FAIL [log=./1595948518552/56276045-433b-484e-a571-75518a73af32/test.log]

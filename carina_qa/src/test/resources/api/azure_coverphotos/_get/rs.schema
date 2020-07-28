@@ -5,28 +5,16 @@
     "ID": {
       "type": "integer"
     },
-    "Title": {
-          "type": "string"
-    },
-    "Description": {
-          "type": "string"
-    },
-    "PageCount": {
+    "IDBook": {
           "type": "integer"
     },
-    "Excerpt": {
-              "type": "string"
-    },
-    "PublishDate": {
-                  "type": "string"
+    "Url": {
+          "type": "string"
     }
   },
   "required": [
       "ID",
-      "Title",
-      "Description",
-      "PageCount",
-      "Excerpt",
-      "PublishDate"
+      "IDBook",
+      "Url"
   ]
 }

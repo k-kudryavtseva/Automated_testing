@@ -1,4 +1,4 @@
-package com.solvd.carina.demo.api.azure.book;
+package com.solvd.carina.demo.api.azure.books;
 
-public class PutAzureBookMethod {
+public class PutAzureBookByIdMethod {
 }
