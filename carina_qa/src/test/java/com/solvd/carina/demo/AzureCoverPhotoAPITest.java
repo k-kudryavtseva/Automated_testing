@@ -6,10 +6,14 @@ import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.api.http.HttpResponseStatusType;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.solvd.carina.demo.api.azure.coverphotos.*;
+import com.solvd.carina.demo.api.azure.users.PutAzureUserByIdMethod;
 import com.solvd.carina.demo.api.bo.AzureCoverPhoto;
+import com.solvd.carina.demo.api.bo.AzureUser;
 import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
 
 public class AzureCoverPhotoAPITest extends AbstractTest {
 
@@ -71,5 +75,23 @@ public class AzureCoverPhotoAPITest extends AbstractTest {
         DeleteAzureCoverPhotoByIdMethod deleteAzureCoverPhotoByIdMethod = new DeleteAzureCoverPhotoByIdMethod(id);
         deleteAzureCoverPhotoByIdMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
         deleteAzureCoverPhotoByIdMethod.callAPI();
+    }
+
+    @MethodOwner(owner = "k-kudryavtseva")
+    @Test
+    public void testPutAzureCoverPhotoById() throws IOException {
+        int id = 11;
+        int idBook = 100;
+        String url = "url";
+        PutAzureCoverPhotoByIdMethod putAzureCoverPhotoByIdMethod = new PutAzureCoverPhotoByIdMethod(id, idBook, url);
+        putAzureCoverPhotoByIdMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
+        String rs = putAzureCoverPhotoByIdMethod.callAPI().asString();
+        ObjectMapper mapper = new ObjectMapper();
+        AzureCoverPhoto actualCoverPhoto = mapper.readValue(rs, AzureCoverPhoto.class);
+
+        Assert.assertNotNull(actualCoverPhoto, "Response object cannot be null");
+        Assert.assertEquals(actualCoverPhoto.getId(), id, "Id is not as expected");
+        Assert.assertEquals(actualCoverPhoto.getIdBook(), idBook, "IdBook is not as expected");
+        Assert.assertEquals(actualCoverPhoto.getUrl(), url, "Url is not as expected");
     }
 }
