@@ -9,6 +9,7 @@ public class PutAzureActivityByIdMethod extends AbstractApiMethodV2 {
     public PutAzureActivityByIdMethod(int id, String title, String dueDate, boolean completed) {
         super("api/azure_activities/_put/rq.json", null, new Properties());
         replaceUrlPlaceholder("api_azure_url", Configuration.getEnvArg("api_azure_url"));
+        replaceUrlPlaceholder("id", "" + id);
         addProperty("id", id);
         addProperty("title", title);
         addProperty("dueDate", dueDate);

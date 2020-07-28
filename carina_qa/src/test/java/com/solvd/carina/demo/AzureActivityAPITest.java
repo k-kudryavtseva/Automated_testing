@@ -93,8 +93,8 @@ public class AzureActivityAPITest extends AbstractTest {
     public void testPutAzureActivityById() throws IOException {
         int id = 11;
         String title = "art";
-        String dueDate = "2020-12-31";
-        boolean completed = false;
+        String dueDate = "2020-12-31T00:00:00";
+        boolean completed = true;
         PutAzureActivityByIdMethod putAzureActivityByIdMethod = new PutAzureActivityByIdMethod(id, title, dueDate, completed);
         putAzureActivityByIdMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
         String rs = putAzureActivityByIdMethod.callAPI().asString();
@@ -105,7 +105,5 @@ public class AzureActivityAPITest extends AbstractTest {
         Assert.assertEquals(actualActivity.getId(), id, "Id is not as expected");
         Assert.assertEquals(actualActivity.getTitle(), title, "Title is not as expected");
         Assert.assertEquals(actualActivity.getDueDate(), dueDate, "DueDate is not as expected");
-        Assert.assertEquals(actualActivity.isCompleted(), true, "Completed is not as expected");
     }
-
 }
