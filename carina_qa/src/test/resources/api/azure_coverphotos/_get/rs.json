@@ -1,0 +1,10 @@
+[
+  {
+    "ID": "type:Integer",
+    "Title": "type:String",
+    "Description": "type:String",
+    "PageCount": "type:Integer",
+    "Excerpt": "type:String",
+    "PublishDate": "type:String"
+  }
+]
