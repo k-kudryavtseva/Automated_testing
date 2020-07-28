@@ -71,6 +71,5 @@ public class AzureBookAPITest extends AbstractTest {
         DeleteAzureBookByIdMethod deleteAzureBookByIdMethod = new DeleteAzureBookByIdMethod(id);
         deleteAzureBookByIdMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
         deleteAzureBookByIdMethod.callAPI();
-        deleteAzureBookByIdMethod.validateResponse();
     }
 }

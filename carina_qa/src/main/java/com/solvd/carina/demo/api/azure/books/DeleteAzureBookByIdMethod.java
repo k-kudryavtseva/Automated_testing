@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class DeleteAzureBookByIdMethod extends AbstractApiMethodV2 {
     public DeleteAzureBookByIdMethod(int id) {
-        super(null, null, new Properties());
+        super("api/azure_books/_delete/rq.json", null, new Properties());
         replaceUrlPlaceholder("api_azure_url", Configuration.getEnvArg("api_azure_url"));
         replaceUrlPlaceholder("id", "" + id);
     }
