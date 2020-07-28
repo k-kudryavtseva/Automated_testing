@@ -71,6 +71,5 @@ public class AzureCoverPhotoAPITest extends AbstractTest {
         DeleteAzureCoverPhotoByIdMethod deleteAzureCoverPhotoByIdMethod = new DeleteAzureCoverPhotoByIdMethod(id);
         deleteAzureCoverPhotoByIdMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
         deleteAzureCoverPhotoByIdMethod.callAPI();
-        deleteAzureCoverPhotoByIdMethod.validateResponse();
     }
 }

@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class DeleteAzureCoverPhotoByIdMethod extends AbstractApiMethodV2 {
     public DeleteAzureCoverPhotoByIdMethod(int id) {
-        super(null, null, new Properties());
+        super(null, "api/azure_coverphotos/_delete/rq.json", new Properties());
         replaceUrlPlaceholder("api_azure_url", Configuration.getEnvArg("api_azure_url"));
         replaceUrlPlaceholder("id", "" + id);
     }
