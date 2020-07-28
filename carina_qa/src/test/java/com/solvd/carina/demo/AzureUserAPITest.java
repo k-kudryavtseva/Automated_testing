@@ -77,11 +77,10 @@ public class AzureUserAPITest extends AbstractTest {
     @MethodOwner(owner = "k-kudryavtseva")
     @Test
     public void testDeleteAzureUserById() {
-        int userId = 1;
-        DeleteAzureUserByIdMethod deleteAzureUserByIdMethod = new DeleteAzureUserByIdMethod(userId);
+        int id = 1;
+        DeleteAzureUserByIdMethod deleteAzureUserByIdMethod = new DeleteAzureUserByIdMethod(id);
         deleteAzureUserByIdMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
         deleteAzureUserByIdMethod.callAPI();
-        deleteAzureUserByIdMethod.validateResponse();
     }
 
     @MethodOwner(owner = "k-kudryavtseva")
