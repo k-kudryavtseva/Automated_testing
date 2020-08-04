@@ -6,7 +6,6 @@ import com.qaprosoft.carina.core.foundation.webdriver.DriverHelper;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.solvd.carina.demo.locators.HomePageLocators;
 import com.solvd.carina.demo.locators.LoginPageLocators;
-import org.apache.commons.math3.geometry.Space;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;

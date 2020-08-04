@@ -2,7 +2,7 @@ package com.solvd.carina.demo.locators;
 
 import org.openqa.selenium.By;
 
-public class RegisterPageLocators {
+public class SignUpWindowLocators {
     public static class SignUpForm {
         public static final By SIGNUP_FORM_PARENT = By.id("user-submit");
         public static final By CREATE_ACCOUNT_TITLE = By.xpath("//p[text()='Create account']");

@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 
 public class HomePageLocators {
     public static class Header {
-        //base header elements
         public static final By LOGO = By.id("logo");
         public static final By SEARCH_BAR = By.id("topsearch");
         public static final By TIP_ICON = By.className("tip-icon");
@@ -29,5 +28,4 @@ public class HomePageLocators {
     public static class HeaderLoggedIn {
         public static final By PROFILE_ICON = By.className("icon-user");
     }
-
 }
