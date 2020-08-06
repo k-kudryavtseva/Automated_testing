@@ -60,9 +60,11 @@ public class GSMArenaLoginDialogWindowTest extends AbstractTest {
     public void testUserLoginPass() {
         ExtendedWebElement loginButton = driverHelper.findExtendedWebElement(HomePageLocators.Header.LOGIN_ICON);
         loginButton.click();
-        Assert.assertNotNull(driverHelper.findExtendedWebElement(HomePageLocators.LoginForm.LOGIN_FORM_PARENT), "Login form was not opened!");
+        Assert.assertNotNull(driverHelper.findExtendedWebElement(HomePageLocators.LoginForm.LOGIN_FORM_PARENT),
+                "Login form was not opened!");
 
         driverHelper.findExtendedWebElement(HomePageLocators.LoginForm.EMAIL_INPUT).type(VALID_LOGIN);
+
         driverHelper.findExtendedWebElement(HomePageLocators.LoginForm.PASSWORD_INPUT).type(VALID_PASSWORD);
 
         driverHelper.findExtendedWebElement(HomePageLocators.LoginForm.SUBMIT_BUTTON).click();
@@ -90,7 +92,7 @@ public class GSMArenaLoginDialogWindowTest extends AbstractTest {
         driverHelper.findExtendedWebElement(HomePageLocators.LoginForm.SUBMIT_BUTTON).click();
 
         ExtendedWebElement warningMessage = driverHelper.findExtendedWebElement(EMAIL_INPUT);
-        Assert.assertEquals(warningMessage.getAttribute("validationMessage"), TestDataset.invalidLoginMessage(INVALID_LOGIN.toString()),
+        Assert.assertEquals(warningMessage.getAttribute("validationMessage"), TestDataset.invalidLoginMessage(INVALID_LOGIN),
                 "Warning message is not as expected!");
     }
 
@@ -107,7 +109,7 @@ public class GSMArenaLoginDialogWindowTest extends AbstractTest {
         driverHelper.findExtendedWebElement(HomePageLocators.LoginForm.SUBMIT_BUTTON).click();
 
         ExtendedWebElement warningMessage = driverHelper.findExtendedWebElement(HomePageLocators.LoginForm.EMAIL_INPUT);
-        Assert.assertEquals(warningMessage.getAttribute("validationMessage"), TestDataset.incompleteLoginMessage(INCOMPLETE_LOGIN.toString()),
+        Assert.assertEquals(warningMessage.getAttribute("validationMessage"), TestDataset.incompleteLoginMessage(INCOMPLETE_LOGIN),
                 "Warning message is not as expected!");
     }
 
@@ -200,7 +202,8 @@ public class GSMArenaLoginDialogWindowTest extends AbstractTest {
     public void testWrongPasswordLogin() {
         ExtendedWebElement loginButton = driverHelper.findExtendedWebElement(HomePageLocators.Header.LOGIN_ICON);
         loginButton.click();
-        Assert.assertNotNull(driverHelper.findExtendedWebElement(HomePageLocators.LoginForm.LOGIN_FORM_PARENT), "Login form was not opened!");
+        Assert.assertNotNull(driverHelper.findExtendedWebElement(HomePageLocators.LoginForm.LOGIN_FORM_PARENT),
+                "Login form was not opened!");
 
         driverHelper.findExtendedWebElement(HomePageLocators.LoginForm.EMAIL_INPUT).type(WRONG_LOGIN);
         driverHelper.findExtendedWebElement(HomePageLocators.LoginForm.PASSWORD_INPUT).type(WRONG_PASSWORD);

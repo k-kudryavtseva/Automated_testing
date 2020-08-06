@@ -54,7 +54,7 @@ public class GSMArenaSignUpPageFormTest extends AbstractTest {
                         )
                 )
         );
-        softAssert.assertAll(); //FAIL: element 'By.xpath: //p[text()='Create account']' is not found!
+        softAssert.assertAll();
     }
 
     @Test(description = "nickname - valid (free), login - valid, password - valid")
