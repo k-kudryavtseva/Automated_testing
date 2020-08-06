@@ -1,5 +1,6 @@
 package com.solvd.carina.demo;
 
+import com.qaprosoft.carina.core.foundation.utils.R;
 import com.solvd.carina.demo.locators.HomePageLocators;
 import com.solvd.carina.demo.locators.SignUpWindowLocators;
 import org.openqa.selenium.By;
@@ -38,9 +39,9 @@ public class TestDataset {
     public static final String LOGIN_FAILED_MESSAGE_EXPECTED = "Login failed.";
     public static final String LOGIN_FAILED_DESCRIPTION_EXPECTED = "Reason: User record not found.";
 
-    public static final String VALID_LOGIN = "s9rowa@mail.ru";
-    public static final String VALID_NICKNAME = "test.user";
-    public static final String VALID_PASSWORD = "changeme";
+    public static final String VALID_LOGIN = R.TESTDATA.get("gsm.arena.valid_login");
+    public static final String VALID_NICKNAME = R.TESTDATA.get("gsm.arena.valid_nickname");
+    public static final String VALID_PASSWORD = R.TESTDATA.get("gsm.arena.valid_password");
 
     public static final String RESERVED_NICKNAME_MESSAGE = "This nickname is already reserved.";
     public static final String CANCELED_NICKNAME_MESSAGE = "Please use only latin letters, numbers, space, dot and dash.";
@@ -58,24 +59,23 @@ public class TestDataset {
     public static final String LOGIN_PASS_DESCRIPTION_EXPECTED = "Stand-by for redirect.";
 
     public static final List<By> SIGNUP_FORM_ELEMENTS = Arrays.asList(
-            SignUpWindowLocators.SignUpForm.CREATE_ACCOUNT_TITLE, SignUpWindowLocators.SignUpForm.NICKNAME_INPUT,
-            SignUpWindowLocators.SignUpForm.EMAIL_INPUT, SignUpWindowLocators.SignUpForm.PASSWORD_INPUT,
-            SignUpWindowLocators.SignUpForm.AGREE_DATASTORAGE_BUTTON, SignUpWindowLocators.SignUpForm.AGREE_AGE_LIMIT_BUTTON,
-            SignUpWindowLocators.SignUpForm.SUBMIT_BUTTON
+            SignUpWindowLocators.SignUpForm.SIGNUP_FORM_PARENT , SignUpWindowLocators.SignUpForm.CREATE_ACCOUNT_TITLE,
+            SignUpWindowLocators.SignUpForm.NICKNAME_INPUT, SignUpWindowLocators.SignUpForm.EMAIL_INPUT,
+            SignUpWindowLocators.SignUpForm.PASSWORD_INPUT, SignUpWindowLocators.SignUpForm.AGREE_DATASTORAGE_BUTTON,
+            SignUpWindowLocators.SignUpForm.AGREE_AGE_LIMIT_BUTTON, SignUpWindowLocators.SignUpForm.SUBMIT_BUTTON
     );
 
     public static final String INVALID_NICKNAME = "a";
     public static final String INVALID_NICKNAME_MESSAGE = "Your nickname should have between 2 and 20 symbols";
 
-    public static final String NEW_VALID_NICKNAME = "kjkjkjkjkjkjkjkjkjk";
-    public static final String NEW_VALID_NICKNAME_2 = "qwqwqwqwqwqwqwqwq";
-    public static final String NEW_VALID_LOGIN = "robmanka@yandex.ru";
-    public static final String NEW_VALID_PASSWORD = "robmanka";
+    public static final String NEW_VALID_NICKNAME = R.TESTDATA.get("gsm.arena.new_valid_nickname");
+    public static final String NEW_VALID_NICKNAME_2 = R.TESTDATA.get("gsm.arena.new_valid_nickname_2");
+    public static final String NEW_VALID_LOGIN = R.TESTDATA.get("gsm.arena.new_valid_login");
+    public static final String NEW_VALID_PASSWORD = R.TESTDATA.get("gsm.arena.new_valid_password");
 
     public static final String SIGNUP_PASS_MESSAGE_EXPECTED = "Your account was created.";
     public static final String SIGNUP_PASS_DESCRIPTION_EXPECTED = "Please check your email and click on the link to finish the process. Thank you.";
 
     public static final String SIGNUP_FAILED_MESSAGE_EXPECTED = "The operation failed.";
     public static final String SIGNUP_FAILED_DESCRIPTION_EXPECTED = "Reason: Email already used.";
-
 }
