@@ -1,0 +1,8 @@
+{
+  "ID": "${id}",
+  "Title": "${title}",
+  "Description": "${description}",
+  "PageCount": "${pageCount}",
+  "Excerpt": "${excerpt}",
+  "PublishDate": "${publishDate}"
+}

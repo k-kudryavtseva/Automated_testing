@@ -1,0 +1,8 @@
+[
+  {
+    "ID": "type:Integer",
+    "Title": "type:String",
+    "DueDate": "type:String",
+    "Completed": "type:Boolean"
+  }
+]

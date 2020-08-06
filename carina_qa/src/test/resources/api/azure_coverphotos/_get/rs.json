@@ -1,0 +1,7 @@
+[
+  {
+    "ID": "type:Integer",
+    "IDBook": "type:Integer",
+    "Url": "type:String"
+  }
+]
