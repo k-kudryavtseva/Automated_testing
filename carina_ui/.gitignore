@@ -145,4 +145,5 @@ buildNumber.properties
 
 reports/*
 
+carinua_ui/src/main/resources/crypto.key
 # End of https://www.toptal.com/developers/gitignore/api/java,maven,intellij
